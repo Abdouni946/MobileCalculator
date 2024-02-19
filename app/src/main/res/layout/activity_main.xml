@@ -34,8 +34,8 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <Button style="@style/Button1"
-                    android:id="@+id/on"
-                    android:text="On"
+                    android:id="@+id/C"
+                    android:text="C"
                 />
             <Button style="@style/Button2"
                 android:id="@+id/num1"
@@ -48,8 +48,8 @@
                 android:id="@+id/num7"
                 android:text="7"/>
             <Button style="@style/Button1"
-                android:id="@+id/Del"
-                android:text="del"/>
+                android:id="@+id/AC"
+                android:text="AC"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,8 +57,8 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <Button style="@style/Button1"
-                android:text="off"
-                android:id="@+id/OFF"/>
+                android:text="("
+                android:id="@+id/openBracket"/>
             <Button style="@style/Button2"
                 android:id="@+id/num2"
                 android:text="2"/>
@@ -78,8 +78,8 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <Button style="@style/Button1"
-                android:text="AC"
-                android:id="@+id/AC"/>
+                android:text=")"
+                android:id="@+id/closeBracket"/>
             <Button style="@style/Button2"
                 android:text="3"
                 android:id="@+id/num3"/>
@@ -91,7 +91,7 @@
                 android:id="@+id/num9"/>
             <Button style="@style/Button2"
                 android:text="."
-                android:id="@+id/point"/>
+                android:id="@+id/dot"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,7 +102,7 @@
                 android:text="/"
                 android:id="@+id/div"/>
             <Button style="@style/Button1"
-                android:text="x"
+                android:text="*"
                 android:id="@+id/multiply"/>
             <Button style="@style/Button1"
                 android:text="+"

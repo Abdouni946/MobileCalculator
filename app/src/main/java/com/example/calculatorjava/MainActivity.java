@@ -7,101 +7,139 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
-
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-    double firstValue=0.0  , secondValue=0.0;
-    String currentOperator = "";
-    @SuppressLint("SetTextI18n")
-    @Override
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
+    private Button buttonAdd, buttonSub, buttonMul, buttonDiv, buttonEqual, buttonDot; // +, -, *, /, =, C, .
+    private Button bracketOpen, BracketClose, ButtonAC, ButtonC; // (, ),AC,C
+    private TextView textView; // to display the input and output
+
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button num0 = findViewById(R.id.num0);
-        Button num1 = findViewById(R.id.num1);
-        Button num2 = findViewById(R.id.num2);
-        Button num3 = findViewById(R.id.num3);
-        Button num4 = findViewById(R.id.num4);
-        Button num5 = findViewById(R.id.num5);
-        Button num6 = findViewById(R.id.num6);
-        Button num7 = findViewById(R.id.num7);
-        Button num8 = findViewById(R.id.num8);
-        Button num9 = findViewById(R.id.num9);
-        Button on = findViewById(R.id.on);
-        Button off = findViewById(R.id.OFF);
-        Button plus = findViewById(R.id.plus);
-        Button multi = findViewById(R.id.multiply);
-        Button minus = findViewById(R.id.minus);
-        Button point = findViewById(R.id.point);
-        Button div = findViewById(R.id.div);
-        Button equal = findViewById(R.id.equal);
-        Button del = findViewById(R.id.Del);
-        Button Ac = findViewById(R.id.AC);
-        TextView screen = findViewById(R.id.textView);
-
-        View.OnClickListener numberButtonClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Button b = (Button) v;
-                screen.append(b.getText().toString());
-            }
-        };
-
-        View.OnClickListener operatorButtonClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Button b = (Button) v;
-                firstValue = Double.valueOf(screen.getText().toString());
-                screen.setText("");
-                currentOperator = b.getText().toString();
-            }
-        };
-
-        num0.setOnClickListener(numberButtonClickListener);
-        num1.setOnClickListener(numberButtonClickListener);
-        num2.setOnClickListener(numberButtonClickListener);
-        num3.setOnClickListener(numberButtonClickListener);
-        num4.setOnClickListener(numberButtonClickListener);
-        num5.setOnClickListener(numberButtonClickListener);
-        num6.setOnClickListener(numberButtonClickListener);
-        num7.setOnClickListener(numberButtonClickListener);
-        num8.setOnClickListener(numberButtonClickListener);
-        num9.setOnClickListener(numberButtonClickListener);
-        plus.setOnClickListener(numberButtonClickListener);
-        minus.setOnClickListener(operatorButtonClickListener);
-        multi.setOnClickListener(operatorButtonClickListener);
-        point.setOnClickListener(operatorButtonClickListener);
-        div.setOnClickListener(operatorButtonClickListener);
-
-        Ac.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                screen.setText("");
-            }
-        });
-
-        equal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                secondValue = Double.valueOf(screen.getText().toString());
-                switch (currentOperator) {
-                    case "+":
-                        screen.setText(String.valueOf(firstValue + secondValue));
-                        break;
-                    case "-":
-                        screen.setText(String.valueOf(firstValue - secondValue));
-                        break;
-                    case "*":
-                        screen.setText(String.valueOf(firstValue * secondValue));
-                        break;
-                    case "/":
-                        screen.setText(String.valueOf(firstValue / secondValue));
-                        break;
-                }
-            }
-        });
+        textView = findViewById(R.id.textView);
+        assignedId(button0, R.id.num0);
+        assignedId(button1, R.id.num1);
+        assignedId(button2, R.id.num2);
+        assignedId(button3, R.id.num3);
+        assignedId(button4, R.id.num4);
+        assignedId(button5, R.id.num5);
+        assignedId(button6, R.id.num6);
+        assignedId(button7, R.id.num7);
+        assignedId(button8, R.id.num8);
+        assignedId(button9, R.id.num9);
+        assignedId(buttonAdd, R.id.plus);
+        assignedId(buttonSub, R.id.minus);
+        assignedId(buttonMul, R.id.multiply);
+        assignedId(buttonDiv, R.id.div);
+        assignedId(buttonEqual, R.id.equal);
+        assignedId(buttonDot, R.id.dot);
+        assignedId(bracketOpen, R.id.openBracket);
+        assignedId(BracketClose, R.id.closeBracket);
+        assignedId(ButtonAC, R.id.AC);
+        assignedId(ButtonC, R.id.C);
 
     }
+
+    void assignedId ( Button btn , int id){
+        btn = findViewById(id);
+        btn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Button button = (Button) view;
+        String buttonText = button.getText().toString();
+        String dataToCalculate = textView.getText().toString();
+
+        switch (buttonText) {
+            case "AC":
+                textView.setText("0");
+                break;
+            case "C":
+                if (!dataToCalculate.isEmpty()) {
+                    dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
+                    textView.setText(dataToCalculate);
+                }
+                break;
+            case "=":
+                String result = calculateResult(dataToCalculate);
+                textView.setText(result);
+                break;
+            default:
+                if (dataToCalculate.equals("0")) {
+                    dataToCalculate = buttonText;
+                } else {
+                    dataToCalculate += buttonText;
+                }
+                textView.setText(dataToCalculate);
+                break;
+        }
+    }
+
+    private String calculateResult(String data) {
+        data = data.replaceAll("\\s", "");
+        if (data.isEmpty() || data.equals("+") || data.equals("-") || data.equals("*") || data.equals("/")) {
+            return "Invalid Input";
+        }
+
+        try {
+            // Initial result and current number as a string
+            double result = 0;
+            StringBuilder currentNumber = new StringBuilder();
+            char operation = '+';
+
+            for (int i = 0; i < data.length(); i++) {
+                char currentChar = data.charAt(i);
+
+                if (Character.isDigit(currentChar) || currentChar == '.') {
+                    currentNumber.append(currentChar); // Build the current number
+                }
+
+                if (!Character.isDigit(currentChar) && currentChar != '.' || i == data.length() - 1) {
+                    // When we hit an operator or reach the end of the string, we evaluate
+                    // what we have so far
+                    double number = currentNumber.length() > 0 ? Double.parseDouble(currentNumber.toString()) : 0;
+                    switch (operation) {
+                        case '+':
+                            result += number;
+                            break;
+                        case '-':
+                            result -= number;
+                            break;
+                        case '*':
+                            result *= number;
+                            break;
+                        case '/':
+                            if (number == 0) {
+                                return "Error: Division by Zero"; // Prevent division by zero
+                            }
+                            result /= number;
+                            break;
+                    }
+
+                    // Reset for the next number
+                    currentNumber = new StringBuilder();
+                    operation = currentChar; // Update the operation for the next loop
+                }
+            }
+
+            // Formatting the result to remove unnecessary decimal places
+            if (result == (long) result) {
+                return String.format("%d", (long) result);
+            } else {
+                return String.format("%.2f", result); // Limiting to 2 decimal places for simplicity
+            }
+        } catch (NumberFormatException e) {
+            return "Error: Invalid Number Format"; // Handle incorrect number formats gracefully
+        } catch (Exception e) {
+            return "Error: Unexpected"; // Catch-all for any other unexpected errors
+        }
+    }
+
 }
