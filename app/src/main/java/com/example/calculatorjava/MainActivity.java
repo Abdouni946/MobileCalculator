@@ -1,13 +1,10 @@
 package com.example.calculatorjava;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
@@ -80,64 +77,109 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private String calculateResult(String data) {
-        data = data.replaceAll("\\s", "");
-        if (data.isEmpty() || data.equals("+") || data.equals("-") || data.equals("*") || data.equals("/")) {
+    public String calculateResult(String data) {
+        data = data.replaceAll("\\s", ""); // Remove all whitespaces
+        if (data.isEmpty()) {
             return "Invalid Input";
         }
 
-        try {
-            // Initial result and current number as a string
-            double result = 0;
-            StringBuilder currentNumber = new StringBuilder();
-            char operation = '+';
+        double result = 0;
+        StringBuilder currentNumber = new StringBuilder();
+        char operation = '+';
 
-            for (int i = 0; i < data.length(); i++) {
-                char currentChar = data.charAt(i);
+        for (int i = 0; i < data.length(); i++) {
+            char currentChar = data.charAt(i);
 
-                if (Character.isDigit(currentChar) || currentChar == '.') {
-                    currentNumber.append(currentChar); // Build the current number
-                }
-
-                if (!Character.isDigit(currentChar) && currentChar != '.' || i == data.length() - 1) {
-                    // When we hit an operator or reach the end of the string, we evaluate
-                    // what we have so far
-                    double number = currentNumber.length() > 0 ? Double.parseDouble(currentNumber.toString()) : 0;
-                    switch (operation) {
-                        case '+':
-                            result += number;
-                            break;
-                        case '-':
-                            result -= number;
-                            break;
-                        case '*':
-                            result *= number;
-                            break;
-                        case '/':
-                            if (number == 0) {
-                                return "Error: Division by Zero"; // Prevent division by zero
-                            }
-                            result /= number;
-                            break;
-                    }
-
-                    // Reset for the next number
-                    currentNumber = new StringBuilder();
-                    operation = currentChar; // Update the operation for the next loop
-                }
-            }
-
-            // Formatting the result to remove unnecessary decimal places
-            if (result == (long) result) {
-                return String.format("%d", (long) result);
+            if (Character.isDigit(currentChar) || currentChar == '.') {
+                currentNumber.append(currentChar);
             } else {
-                return String.format("%.2f", result); // Limiting to 2 decimal places for simplicity
+                // Handle the end of a number and the start of an operation
+                if (currentNumber.length() > 0) {
+                    double number = Double.parseDouble(currentNumber.toString());
+                    result = applyOperation(result, number, operation);
+                    currentNumber = new StringBuilder(); // Reset for next number
+                }
+                operation = currentChar; // Update operation
             }
-        } catch (NumberFormatException e) {
-            return "Error: Invalid Number Format"; // Handle incorrect number formats gracefully
-        } catch (Exception e) {
-            return "Error: Unexpected"; // Catch-all for any other unexpected errors
+
+            // Handle operations that do not follow a number directly
+            if (!Character.isDigit(currentChar) && currentChar != '.' && i == data.length() - 1) {
+                result = applyOperation(result, 0, operation);
+            }
+        }
+
+        // Handle last number
+        if (currentNumber.length() > 0) {
+            double number = Double.parseDouble(currentNumber.toString());
+            result = applyOperation(result, number, operation);
+        }
+
+        // Formatting the result
+        if (result == (long) result) {
+            return String.format("%d", (long) result);
+        } else {
+            return String.format("%.2f", result);
         }
     }
+
+    // Apply the operation
+    private double applyOperation(double result, double number, char operation) {
+        switch (operation) {
+            case '+':
+                return result + number;
+            case '-':
+                return result - number;
+            case '*':
+                return result * number;
+            case '/':
+                if (number == 0) throw new ArithmeticException("Division by zero");
+                return result / number;
+            case '%':
+                return result % number;
+            case '1': // For 1/x
+                return 1 / number;
+            case 'p': // Assuming 'p' for PI
+                return Math.PI;
+            case 'e': // Assuming 'e' for Euler's number
+                return Math.E;
+            case 'a': // Assuming 'a' for abs
+                return Math.abs(number);
+            case 'x': // Assuming 'x' for exp
+                return Math.exp(number);
+            case 's': // Assuming 's' for sin
+                return Math.sin(number);
+            case 'c': // Assuming 'c' for cos
+                return Math.cos(number);
+            case 't': // Assuming 't' for tan
+                return Math.tan(number);
+            case 'l': // Assuming 'l' for log
+                return Math.log10(number);
+            case 'n': // Assuming 'n' for ln
+                return Math.log(number);
+            case 'q': // Assuming 'q' for sqrt
+                return Math.sqrt(number);
+            case 'u': // Assuming 'u' for square (squart was probably meant square)
+                return Math.pow(number, 2);
+            case 'f': // Assuming 'f' for factorial
+                return factorial(number);
+            case 'o': // Assuming 'o' for power
+                return Math.pow(result, number); // This needs clarification, used result as base
+            default:
+                return result;
+        }
+    }
+
+    // Factorial function
+    private double factorial(double number) {
+        if (number < 0) throw new ArithmeticException("Factorial of a negative number is undefined");
+        if (number == 0) return 1;
+        double result = 1;
+        for (int i = 1; i <= number; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+
 
 }

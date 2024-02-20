@@ -41,11 +41,11 @@
                 android:text="%" />
 
             <Button
-                android:id="@+id/sinus"
+                android:id="@+id/buttonSin"
                 style="@style/Button3"
                 android:text="sin" />
             <Button
-                android:id="@+id/logarithme"
+                android:id="@+id/buttonLn"
                 style="@style/Button3"
                 android:text="ln" />
 
@@ -54,7 +54,7 @@
                 style="@style/Button3"
                 android:text="e^x" />
             <Button
-                android:id="@+id/abs"
+                android:id="@+id/absolue"
                 style="@style/Button4"
                 android:text="abs" />
 
@@ -67,22 +67,22 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/racine"
+                android:id="@+id/buttonSqrt"
                 style="@style/Button3"
                 android:text="√" />
 
             <Button
-                android:id="@+id/cosinus"
+                android:id="@+id/buttonCos"
                 style="@style/Button3"
                 android:text="cos"/>
 
             <Button
-                android:id="@+id/log"
+                android:id="@+id/buttonLog"
                 style="@style/Button3"
                 android:text="log" />
 
             <Button
-                android:id="@+id/carre"
+                android:id="@+id/buttonSquare"
                 style="@style/Button3"
                 android:text="x²" />
 
@@ -99,27 +99,27 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/factoriel"
+                android:id="@+id/buttonFact"
                 style="@style/Button3"
                 android:text="x!" />
 
             <Button
-                android:id="@+id/tang"
+                android:id="@+id/buttonTan"
                 style="@style/Button3"
                 android:text="tan" />
 
             <Button
-                android:id="@+id/xxx"
+                android:id="@+id/inverse"
                 style="@style/Button3"
                 android:text="1/x" />
 
             <Button
-                android:id="@+id/puissance"
+                android:id="@+id/buttonPower"
                 style="@style/Button3"
                 android:text="x^y" />
 
             <Button
-                android:id="@+id/expo"
+                android:id="@+id/e"
                 style="@style/Button4"
                 android:text="exp" />
         </LinearLayout>

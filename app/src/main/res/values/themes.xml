@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/white</item>
     </style>
 
-    <style name="Button3">
+    <style name="Button1">
         <item name="android:layout_width">70dp</item>
         <item name="android:layout_height">70dp</item>
         <item name="android:textStyle">bold</item>
@@ -22,7 +22,7 @@
         <item name="android:background">@drawable/shape1</item>
     </style>
 
-    <style name="Button4">
+    <style name="Button2">
         <item name="android:layout_width">70dp</item>
         <item name="android:layout_height">70dp</item>
         <item name="android:textStyle">bold</item>

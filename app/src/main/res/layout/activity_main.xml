@@ -33,21 +33,21 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1">
-            <Button style="@style/Button3"
+            <Button style="@style/Button1"
                     android:id="@+id/C"
                     android:text="C"
                 />
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:id="@+id/num1"
                 android:text="1"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:id="@+id/num4"
                 android:text="4"
                 />
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:id="@+id/num7"
                 android:text="7"/>
-            <Button style="@style/Button3"
+            <Button style="@style/Button1"
                 android:id="@+id/AC"
                 android:text="AC"/>
         </LinearLayout>
@@ -56,19 +56,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1">
-            <Button style="@style/Button3"
+            <Button style="@style/Button1"
                 android:text="("
                 android:id="@+id/openBracket"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:id="@+id/num2"
                 android:text="2"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:id="@+id/num5"
                 android:text="5"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:id="@+id/num8"
                 android:text="8"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:text="0"
                 android:id="@+id/num0"/>
         </LinearLayout>
@@ -77,19 +77,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1">
-            <Button style="@style/Button3"
+            <Button style="@style/Button1"
                 android:text=")"
                 android:id="@+id/closeBracket"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:text="3"
                 android:id="@+id/num3"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:text="6 "
                 android:id="@+id/num6"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:text="9"
                 android:id="@+id/num9"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:text="."
                 android:id="@+id/dot"/>
         </LinearLayout>
@@ -98,19 +98,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1">
-            <Button style="@style/Button3"
+            <Button style="@style/Button1"
                 android:text="/"
                 android:id="@+id/div"/>
-            <Button style="@style/Button3"
+            <Button style="@style/Button1"
                 android:text="*"
                 android:id="@+id/multiply"/>
-            <Button style="@style/Button3"
+            <Button style="@style/Button1"
                 android:text="+"
                 android:id="@+id/plus"/>
-            <Button style="@style/Button3"
+            <Button style="@style/Button1"
                 android:text="-"
                 android:id="@+id/minus"/>
-            <Button style="@style/Button4"
+            <Button style="@style/Button2"
                 android:text="="
                 android:id="@+id/equal"/>
         </LinearLayout>
