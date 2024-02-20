@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/_0"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="15dp"
+        android:layout_marginLeft="18dp"
+        android:paddingVertical="3dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="25dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/pourcentage"
+                style="@style/Button3"
+                android:text="%" />
+
+            <Button
+                android:id="@+id/sinus"
+                style="@style/Button3"
+                android:text="sin" />
+            <Button
+                android:id="@+id/logarithme"
+                style="@style/Button3"
+                android:text="ln" />
+
+            <Button
+                android:id="@+id/expox"
+                style="@style/Button3"
+                android:text="e^x" />
+            <Button
+                android:id="@+id/abs"
+                style="@style/Button4"
+                android:text="abs" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/racine"
+                style="@style/Button3"
+                android:text="√" />
+
+            <Button
+                android:id="@+id/cosinus"
+                style="@style/Button3"
+                android:text="cos"/>
+
+            <Button
+                android:id="@+id/log"
+                style="@style/Button3"
+                android:text="log" />
+
+            <Button
+                android:id="@+id/carre"
+                style="@style/Button3"
+                android:text="x²" />
+
+            <Button
+                android:id="@+id/pi"
+                style="@style/Button4"
+                android:text="pi" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/factoriel"
+                style="@style/Button3"
+                android:text="x!" />
+
+            <Button
+                android:id="@+id/tang"
+                style="@style/Button3"
+                android:text="tan" />
+
+            <Button
+                android:id="@+id/xxx"
+                style="@style/Button3"
+                android:text="1/x" />
+
+            <Button
+                android:id="@+id/puissance"
+                style="@style/Button3"
+                android:text="x^y" />
+
+            <Button
+                android:id="@+id/expo"
+                style="@style/Button4"
+                android:text="exp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/C"
+                style="@style/Button3"
+                android:text="C" />
+
+            <Button
+                android:id="@+id/num1"
+                style="@style/Button4"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/num4"
+                style="@style/Button4"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/num7"
+                style="@style/Button4"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/AC"
+                style="@style/Button3"
+                android:text="AC" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/openBracket"
+                style="@style/Button3"
+                android:text="(" />
+
+            <Button
+                android:id="@+id/num2"
+                style="@style/Button4"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/num5"
+                style="@style/Button4"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/num8"
+                style="@style/Button4"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/num0"
+                style="@style/Button4"
+                android:text="0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/closeBracket"
+                style="@style/Button3"
+                android:text=")" />
+
+            <Button
+                android:id="@+id/num3"
+                style="@style/Button4"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/num6"
+                style="@style/Button4"
+                android:text="6 " />
+
+            <Button
+                android:id="@+id/num9"
+                style="@style/Button4"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/dot"
+                style="@style/Button4"
+                android:text="." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/div"
+                style="@style/Button3"
+                android:text="/" />
+
+            <Button
+                android:id="@+id/multiply"
+                style="@style/Button3"
+                android:text="*" />
+
+            <Button
+                android:id="@+id/plus"
+                style="@style/Button3"
+                android:text="+" />
+
+            <Button
+                android:id="@+id/minus"
+                style="@style/Button3"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/equal"
+                style="@style/Button4"
+                android:text="=" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
