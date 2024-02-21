@@ -15,7 +15,6 @@
         <activity android:name=".Landscape"
             android:exported="false"
             android:configChanges="orientation|screenSize"/>
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
