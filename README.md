@@ -1,4 +1,4 @@
-# Calculatrice en deux modes
+# Calculatrice en deux modes(Portrait et Paysage)
 ## Aperçu
 Cette application de calculatrice mobile offre des calculs mathématiques de base et avancés. Elle dispose de deux modes distincts pour une utilisation optimale selon l'orientation de l'écran.
 ## Fonctionnalités
