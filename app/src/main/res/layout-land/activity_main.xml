@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
+        android:hint="0"
         android:paddingHorizontal="15dp"
         android:paddingVertical="3dp"
-        android:hint="0"
+        android:selectAllOnFocus="false"
         android:textColor="@color/grey"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:singleLine="true"
-        />
+        style="@style/EditTextNoUnderline"/>
 
     <LinearLayout
         android:id="@+id/linearLayout1"

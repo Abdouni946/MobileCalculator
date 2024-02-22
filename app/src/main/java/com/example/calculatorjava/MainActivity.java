@@ -9,9 +9,7 @@ import android.widget.EditText;
 import org.mariuszgromada.math.mxparser.*;
 
 public class MainActivity extends AppCompatActivity {
-
     private EditText display;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,29 +19,22 @@ public class MainActivity extends AppCompatActivity {
 
         display.setShowSoftInputOnFocus(false);
     }
-
     private void updateText(String strToAdd){
         String oldStr = display.getText().toString();
         int cursorPos = display.getSelectionStart();
         String leftStr = oldStr.substring(0, cursorPos);
         String rightStr = oldStr.substring(cursorPos);
-
         display.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr));
         display.setSelection(cursorPos + strToAdd.length());
     }
-
     public void zero(View view){
-        updateText("0");
-    }
-
+        updateText(getResources().getString(R.string.zeroText));}
     public void one(View view){
         updateText(getResources().getString(R.string.oneText));
     }
-
     public void two(View view){
         updateText(getResources().getString(R.string.twoText));
     }
-
     public void three(View view){
         updateText(getResources().getString(R.string.threeText));
     }

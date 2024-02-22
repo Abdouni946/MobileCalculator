@@ -104,5 +104,9 @@
         <item name="android:textColor">@color/redSky</item>
     </style>
 
+    <style name="EditTextNoUnderline" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
     <style name="Theme.CalculatorJava" parent="Base.Theme.CalculatorJava" />
 </resources>
