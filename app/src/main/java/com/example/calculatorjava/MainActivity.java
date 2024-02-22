@@ -3,139 +3,191 @@ package com.example.calculatorjava;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
+import android.text.SpannableStringBuilder;
 import android.view.View;
+import android.widget.EditText;
+import org.mariuszgromada.math.mxparser.*;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
-    private Button buttonAdd, buttonSub, buttonMul, buttonDiv, buttonEqual, buttonDot; // +, -, *, /, =, C, .
-    private Button pourcentage, ButtonAC, ButtonC; // %, AC,C
-    private TextView textView; // to display the input and output
+public class MainActivity extends AppCompatActivity {
+
+    private EditText display;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.textView);
-        assignedId(button0, R.id.num0);
-        assignedId(button1, R.id.num1);
-        assignedId(button2, R.id.num2);
-        assignedId(button3, R.id.num3);
-        assignedId(button4, R.id.num4);
-        assignedId(button5, R.id.num5);
-        assignedId(button6, R.id.num6);
-        assignedId(button7, R.id.num7);
-        assignedId(button8, R.id.num8);
-        assignedId(button9, R.id.num9);
-        assignedId(buttonAdd, R.id.plus);
-        assignedId(buttonSub, R.id.minus);
-        assignedId(buttonMul, R.id.multiply);
-        assignedId(buttonDiv, R.id.div);
-        assignedId(buttonEqual, R.id.equal);
-        assignedId(buttonDot, R.id.dot);
-        assignedId(pourcentage, R.id.pourcentage);
-        assignedId(ButtonAC, R.id.AC);
-        assignedId(ButtonC, R.id.C);
+
+        display = findViewById(R.id.editText);
+
+        display.setShowSoftInputOnFocus(false);
     }
 
-    void assignedId ( Button btn , int id){
-        btn = findViewById(id);
-        btn.setOnClickListener(this);
+    private void updateText(String strToAdd){
+        String oldStr = display.getText().toString();
+        int cursorPos = display.getSelectionStart();
+        String leftStr = oldStr.substring(0, cursorPos);
+        String rightStr = oldStr.substring(cursorPos);
+
+        display.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr));
+        display.setSelection(cursorPos + strToAdd.length());
     }
 
-    @Override
-    public void onClick(View view) {
-        Button button = (Button) view;
-        String buttonText = button.getText().toString();
-        String dataToCalculate = textView.getText().toString();
+    public void zero(View view){
+        updateText("0");
+    }
 
-        switch (buttonText) {
-            case "AC":
-                textView.setText("0");
-                break;
-            case "C":
-                if(dataToCalculate.equals("Invalid Input") || dataToCalculate.equals("Error: Division by Zero") || dataToCalculate.equals("Error: Invalid Number Format") || dataToCalculate.equals("Error: Unexpected"))
-                    textView.setText("0");
-                else
-                if (!dataToCalculate.isEmpty()) {
-                    dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
-                    textView.setText(dataToCalculate);
-                }
-                break;
-            case "=":
-                String result = calculateResult(dataToCalculate);
-                textView.setText(result);
-                break;
-            default:
-                if (dataToCalculate.equals("0")) {
-                    dataToCalculate = buttonText;
-                } else {
-                    dataToCalculate += buttonText;
-                }
-                textView.setText(dataToCalculate);
-                break;
+    public void one(View view){
+        updateText(getResources().getString(R.string.oneText));
+    }
+
+    public void two(View view){
+        updateText(getResources().getString(R.string.twoText));
+    }
+
+    public void three(View view){
+        updateText(getResources().getString(R.string.threeText));
+    }
+
+    public void four(View view){
+        updateText(getResources().getString(R.string.fourText));
+    }
+
+    public void five(View view){
+        updateText(getResources().getString(R.string.fiveText));
+    }
+
+    public void six(View view){
+        updateText(getResources().getString(R.string.sixText));
+    }
+
+
+    public void seven(View view){
+        updateText(getResources().getString(R.string.sevenText));
+    }
+
+    public void eight(View view){
+        updateText(getResources().getString(R.string.eightText));
+    }
+
+    public void nine(View view){
+        updateText(getResources().getString(R.string.nineText));
+    }
+
+    public void multiply(View view){
+        updateText(getResources().getString(R.string.multiplyText));
+    }
+
+    public void divide(View view){
+        updateText(getResources().getString(R.string.divideText));
+    }
+
+    public void subtract(View view){
+        updateText(getResources().getString(R.string.subtractText));
+    }
+
+    public void add(View view){
+        updateText(getResources().getString(R.string.addText));
+    }
+
+    public void clear(View view){
+        display.setText("");
+    }
+
+    public void pour(View view){
+        updateText("%");
+    }
+
+    public void parOpen(View view){
+        updateText(getResources().getString(R.string.parenthesesOpenText));
+    }
+
+    public void parClose(View view){
+        updateText(getResources().getString(R.string.parenthesesCloseText));
+    }
+
+    public void decimal(View view){
+        updateText(getResources().getString(R.string.decimalText));
+    }
+
+    public void equal(View view){
+        String userExp = display.getText().toString();
+
+        userExp = userExp.replaceAll(getResources().getString(R.string.divideText), "/");
+        userExp = userExp.replaceAll(getResources().getString(R.string.multiplyText), "*");
+
+        Expression exp = new Expression(userExp);
+        String result = String.valueOf(exp.calculate());
+
+        display.setText(result);
+        display.setSelection(result.length());
+
+    }
+
+    public void backspace(View view){
+        int cursorPos = display.getSelectionStart();
+        int textLen = display.getText().length();
+
+        if (cursorPos != 0 && textLen != 0){
+            SpannableStringBuilder selection = (SpannableStringBuilder) display.getText();
+            selection.replace(cursorPos-1, cursorPos, "");
+            display.setText(selection);
+            display.setSelection(cursorPos-1);
         }
     }
 
-    private String calculateResult(String data) {
-        data = data.replaceAll("\\s", "");
-        if (data.isEmpty() || data.equals("+") || data.equals("-") || data.equals("*") || data.equals("/")) {
-            return "Invalid Input";
-        }
-        try {
-            // Initial result and current number as a string
-            double result = 0;
-            StringBuilder currentNumber = new StringBuilder();
-            char operation = '+';
+    public void Sin(View view){
+        updateText("sin(");
+    }
+    public void Cos(View view){
+        updateText("cos(");
+    }
 
-            for (int i = 0; i < data.length(); i++) {
-                char currentChar = data.charAt(i);
+    public void Tan(View view){
+        updateText("tan(");
+    }
 
-                if (Character.isDigit(currentChar) || currentChar == '.') {
-                    currentNumber.append(currentChar); // Build the current number
-                }
+    public void tArcSin(View view){
+        updateText("arcsin(");
+    }
 
-                if (!Character.isDigit(currentChar) && currentChar != '.' || i == data.length() - 1) {
-                    // When we hit an operator or reach the end of the string, we evaluate
-                    // what we have so far
-                    double number = currentNumber.length() > 0 ? Double.parseDouble(currentNumber.toString()) : 0;
-                    switch (operation) {
-                        case '+':
-                            result += number;
-                            break;
-                        case '-':
-                            result -= number;
-                            break;
-                        case '*':
-                            result *= number;
-                            break;
-                        case '%':
-                            result = result * number / 100;
-                            break;
-                        case '/':
-                            if (number == 0) {
-                                return "Error: Division by Zero"; // Prevent division by zero
-                            }
-                            result /= number;
-                            break;
-                    }
+    public void ArcCos(View view){
+        updateText("arccos(");
+    }
 
-                    // Reset for the next number
-                    currentNumber = new StringBuilder();
-                    operation = currentChar; // Update the operation for the next loop
-                }
-            }
+    public void ArcTan(View view){
+        updateText("arctan(");
+    }
 
-            // Formatting the result to remove unnecessary decimal places
-            if (result == (long) result) {
-                return String.format("%d", (long) result);
-            } else {
-                return String.format("%.2f", result); // Limiting to 2 decimal places for simplicity
-            }
-        } catch (NumberFormatException e) {
-            return "Error: Invalid Number Format"; // Handle incorrect number formats gracefully
-        } catch (Exception e) {
-            return "Error: Unexpected"; // Catch-all for any other unexpected errors
-        }
+    public void Ln(View view){
+        updateText("ln(");
+    }
+
+    public void log(View view){
+        updateText("log(");
+    }
+
+    public void sqrt(View view){
+        updateText("sqrt(");
+    }
+
+    public void abs(View view){
+        updateText("abs(");
+    }
+
+    public void pi(View view){
+        updateText("pi");
+    }
+
+    public void e(View view){
+        updateText("e");
+    }
+
+    public void xSquare(View view){
+        updateText("^(2)");
+    }
+
+    public void xPowerY(View view){
+        updateText("^(");
     }
 
 }

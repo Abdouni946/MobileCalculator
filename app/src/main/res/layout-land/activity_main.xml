@@ -7,16 +7,16 @@
     tools:context=".MainActivity"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
         android:paddingHorizontal="15dp"
         android:paddingVertical="3dp"
-        android:text="@string/_0"
+        android:hint="0"
         android:textColor="@color/grey"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:singleLine="true"
         />
@@ -39,6 +39,7 @@
             <Button
                 android:id="@+id/pourcentage"
                 style="@style/Button3"
+                android:onClick="pour"
                 android:text="%" />
 
             <Button
@@ -48,11 +49,17 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
+                android:onClick="Sin"
+                android:textSize="15dp"
+
                 android:text="sin" />
 
             <Button
                 android:id="@+id/buttonLn"
                 style="@style/Button7"
+                android:onClick="Ln"
+                android:textSize="15dp"
+
                 android:text="ln" />
 
             <Button
@@ -62,12 +69,16 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
+                android:onClick="abs"
+                android:textSize="15dp"
                 android:text="ABS" />
 
             <Button
-                android:id="@+id/ANS"
+                android:id="@+id/ArcCos"
                 style="@style/Button3"
-                android:text="ANS" />
+                android:onClick="ArcCos"
+                android:textSize="15dp"
+                android:text="arccos" />
 
         </LinearLayout>
 
@@ -80,27 +91,40 @@
             <Button
                 android:id="@+id/buttonSqrt"
                 style="@style/Button7"
+                android:onClick="sqrt"
                 android:text="√" />
 
             <Button
                 android:id="@+id/buttonCos"
                 style="@style/Button4"
-                android:text="cos" />
+                android:onClick="Cos"
+                android:text="cos"
+                android:textSize="15dp"
+                />
 
             <Button
                 android:id="@+id/buttonLog"
                 style="@style/Button4"
-                android:text="log" />
+                android:onClick="log"
+                android:text="log"
+                android:textSize="15dp"
+                />
 
             <Button
                 android:id="@+id/buttonSquare"
                 style="@style/Button4"
-                android:text="x²" />
+                android:onClick="xSquare"
+                android:text="x²"
+                android:textSize="15dp"
+                />
 
             <Button
                 android:id="@+id/buttonPI"
                 style="@style/Button4"
-                android:text="pi" />
+                android:onClick="pi"
+                android:text="pi"
+                android:textSize="15dp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -110,29 +134,45 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/buttonFact"
+                android:id="@+id/buttonArcTan"
                 style="@style/Button7"
-                android:text="x!" />
+                android:onClick="ArcTan"
+                android:text="arctan"
+                android:textSize="15dp"
+                />
 
             <Button
                 android:id="@+id/buttonTan"
                 style="@style/Button4"
-                android:text="tan" />
+                android:onClick="Tan"
+                android:text="tan"
+                android:textSize="15dp"
+
+                />
 
             <Button
-                android:id="@+id/inverse"
+                android:id="@+id/ArcSin"
                 style="@style/Button4"
-                android:text="1/x" />
+                android:onClick="tArcSin"
+                android:text="arcsin"
+                android:textSize="15dp"
+                />
 
             <Button
                 android:id="@+id/buttonPower"
                 style="@style/Button4"
-                android:text="x^y" />
+                android:onClick="xPowerY"
+                android:text="x^y"
+                android:textSize="15dp"
+                />
 
             <Button
                 android:id="@+id/buttonE"
                 style="@style/Button4"
-                android:text="exp" />
+                android:onClick="e"
+                android:text="exp"
+                android:textSize="15dp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -144,26 +184,31 @@
             <Button
                 android:id="@+id/C"
                 style="@style/Button7"
+                android:onClick="backspace"
                 android:text="C" />
 
             <Button
                 android:id="@+id/num1"
                 style="@style/Button4"
+                android:onClick="one"
                 android:text="1" />
 
             <Button
                 android:id="@+id/num4"
                 style="@style/Button4"
+                android:onClick="four"
                 android:text="4" />
 
             <Button
                 android:id="@+id/num7"
                 style="@style/Button4"
+                android:onClick="seven"
                 android:text="7" />
 
             <Button
                 android:id="@+id/AC"
                 style="@style/Button3"
+                android:onClick="clear"
                 android:text="AC" />
         </LinearLayout>
 
@@ -176,26 +221,31 @@
             <Button
                 android:id="@+id/openBracket"
                 style="@style/Button7"
+                android:onClick="parOpen"
                 android:text="(" />
 
             <Button
                 android:id="@+id/num2"
                 style="@style/Button4"
+                android:onClick="two"
                 android:text="2" />
 
             <Button
                 android:id="@+id/num5"
                 style="@style/Button4"
+                android:onClick="five"
                 android:text="5" />
 
             <Button
                 android:id="@+id/num8"
                 style="@style/Button4"
+                android:onClick="eight"
                 android:text="8" />
 
             <Button
                 android:id="@+id/num0"
                 style="@style/Button4"
+                android:onClick="zeo"
                 android:text="0" />
         </LinearLayout>
 
@@ -208,21 +258,25 @@
             <Button
                 android:id="@+id/closeBracket"
                 style="@style/Button7"
+                android:onClick="parClose"
                 android:text=")" />
 
             <Button
                 android:id="@+id/num3"
                 style="@style/Button4"
+                android:onClick="three"
                 android:text="3" />
 
             <Button
                 android:id="@+id/num6"
                 style="@style/Button4"
+                android:onClick="six"
                 android:text="6 " />
 
             <Button
                 android:id="@+id/num9"
                 style="@style/Button4"
+                android:onClick="nine"
                 android:text="9" />
 
             <Button
@@ -240,26 +294,31 @@
             <Button
                 android:id="@+id/div"
                 style="@style/Button7"
+                android:onClick="divide"
                 android:text="/" />
 
             <Button
                 android:id="@+id/multiply"
                 style="@style/Button7"
+                android:onClick="multiply"
                 android:text="*" />
 
             <Button
                 android:id="@+id/plus"
                 style="@style/Button7"
+                android:onClick="add"
                 android:text="+" />
 
             <Button
                 android:id="@+id/minus"
                 style="@style/Button7"
+                android:onClick="subtract"
                 android:text="-" />
 
             <Button
                 android:id="@+id/equal"
                 style="@style/Button3"
+                android:onClick="equal"
                 android:text="=" />
         </LinearLayout>
 
