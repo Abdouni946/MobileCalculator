@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context=".MainActivity"
     android:background="@color/white">
@@ -10,14 +10,15 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/_0"
-        android:textStyle="bold"
-        android:textSize="50sp"
-        android:textColor="@color/grey"
-        android:paddingHorizontal="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
+        android:paddingHorizontal="15dp"
         android:paddingVertical="3dp"
+        android:text="@string/_0"
+        android:textColor="@color/grey"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:singleLine="true"
         />
 
     <LinearLayout
@@ -25,14 +26,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:paddingTop="20dp">
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="600dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="25dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <Button
@@ -42,97 +43,107 @@
 
             <Button
                 android:id="@+id/buttonSin"
-                style="@style/Button3"
+                style="@style/Button7"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
                 android:text="sin" />
+
             <Button
                 android:id="@+id/buttonLn"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text="ln" />
 
             <Button
-                android:id="@+id/expox"
-                style="@style/Button3"
-                android:text="e^x" />
-            <Button
                 android:id="@+id/absolue"
-                style="@style/Button4"
-                android:text="abs" />
+                style="@style/Button7"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:text="ABS" />
+
+            <Button
+                android:id="@+id/ANS"
+                style="@style/Button3"
+                android:text="ANS" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="600dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/buttonSqrt"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text="√" />
 
             <Button
                 android:id="@+id/buttonCos"
-                style="@style/Button3"
-                android:text="cos"/>
+                style="@style/Button4"
+                android:text="cos" />
 
             <Button
                 android:id="@+id/buttonLog"
-                style="@style/Button3"
+                style="@style/Button4"
                 android:text="log" />
 
             <Button
                 android:id="@+id/buttonSquare"
-                style="@style/Button3"
+                style="@style/Button4"
                 android:text="x²" />
 
             <Button
-                android:id="@+id/pi"
+                android:id="@+id/buttonPI"
                 style="@style/Button4"
                 android:text="pi" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="600dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/buttonFact"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text="x!" />
 
             <Button
                 android:id="@+id/buttonTan"
-                style="@style/Button3"
+                style="@style/Button4"
                 android:text="tan" />
 
             <Button
                 android:id="@+id/inverse"
-                style="@style/Button3"
+                style="@style/Button4"
                 android:text="1/x" />
 
             <Button
                 android:id="@+id/buttonPower"
-                style="@style/Button3"
+                style="@style/Button4"
                 android:text="x^y" />
 
             <Button
-                android:id="@+id/e"
+                android:id="@+id/buttonE"
                 style="@style/Button4"
                 android:text="exp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="600dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/C"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text="C" />
 
             <Button
@@ -157,14 +168,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="600dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/openBracket"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text="(" />
 
             <Button
@@ -189,14 +200,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="600dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/closeBracket"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text=")" />
 
             <Button
@@ -221,34 +232,34 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="600dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/div"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text="/" />
 
             <Button
                 android:id="@+id/multiply"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text="*" />
 
             <Button
                 android:id="@+id/plus"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text="+" />
 
             <Button
                 android:id="@+id/minus"
-                style="@style/Button3"
+                style="@style/Button7"
                 android:text="-" />
 
             <Button
                 android:id="@+id/equal"
-                style="@style/Button4"
+                style="@style/Button3"
                 android:text="=" />
         </LinearLayout>
 

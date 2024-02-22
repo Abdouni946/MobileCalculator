@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         textView = findViewById(R.id.textView);
         assignedId(button0, R.id.num0);
         assignedId(button1, R.id.num1);
@@ -36,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignedId(pourcentage, R.id.pourcentage);
         assignedId(ButtonAC, R.id.AC);
         assignedId(ButtonC, R.id.C);
-
     }
 
     void assignedId ( Button btn , int id){
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(dataToCalculate.equals("Invalid Input") || dataToCalculate.equals("Error: Division by Zero") || dataToCalculate.equals("Error: Invalid Number Format") || dataToCalculate.equals("Error: Unexpected"))
                     textView.setText("0");
                 else
-                    if (!dataToCalculate.isEmpty()) {
+                if (!dataToCalculate.isEmpty()) {
                     dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
                     textView.setText(dataToCalculate);
                 }
@@ -83,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (data.isEmpty() || data.equals("+") || data.equals("-") || data.equals("*") || data.equals("/")) {
             return "Invalid Input";
         }
-
         try {
             // Initial result and current number as a string
             double result = 0;
@@ -140,6 +137,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return "Error: Unexpected"; // Catch-all for any other unexpected errors
         }
     }
-
 
 }
