@@ -9,12 +9,13 @@ Cette application de calculatrice mobile offre des calculs mathématiques de bas
     * Affichage clair
     * Fonctions de mémoire (stocker et rappeler des valeurs)
     ```
-* **Mode Paysage (Calculatrice scientifique)**
-    ```
-    * Fonctions trigonométriques (sin, cos, tan, arsin, arcos, arctan)
-    * Calculs logarithmiques (log, ln)
-    * Calculs exponentiels
-    * Parenthèses pour les opérations complexes
-    * Constantes (pi, e) 
-    ```
-
+  ![Layout.jpg](Layout.jpg)
+  * **Mode Paysage (Calculatrice scientifique)**
+      ```
+      * Fonctions trigonométriques (sin, cos, tan, arsin, arcos, arctan)
+      * Calculs logarithmiques (log, ln)
+      * Calculs exponentiels
+      * Parenthèses pour les opérations complexes
+      * Constantes (pi, e) 
+      ```
+  ![Landscape.jpg](Landscape.jpg)
