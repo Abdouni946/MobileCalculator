@@ -9,7 +9,7 @@ Cette application de calculatrice mobile offre des calculs mathématiques de bas
     * Affichage clair
     * Fonctions de mémoire (stocker et rappeler des valeurs)
     ```
-  ![Layout.jpg](Layout.jpg)
+ ![Layout.jpg](Layout.jpg) 
   * **Mode Paysage (Calculatrice scientifique)**
       ```
       * Fonctions trigonométriques (sin, cos, tan, arsin, arcos, arctan)
